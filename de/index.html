@@ -434,33 +434,26 @@
         <div class="row" data-aos="fade-up">
 
           <div class="col-lg-6 ">
-            <iframe class="mb-4 mb-lg-0" src="" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
-          </div>
+           <div class="php-email-form">
+	<div class="form-group mt-3">
+		<input type="text" class="form-control" name="subject" id="subject" placeholder="Titel" required="" onblur="updateLink()" onchange="updateLink()" />
+	</div>
+	<div class="form-group mt-3">
+		<textarea class="form-control" name="message" id="message" rows="5" placeholder="Nachrich" required="" onblur="updateLink()" onchange="updateLink()"></textarea>
+	</div>
+	<div class="my-3">
+		<div class="text-center"><a id="linkmail" href="#">Nachrich senden</a></div>
+	</div>
+</div>
+<script type="text/javascript">
+	function updateLink() {
+		let subject = document.getElementById("subject");
+		let message = document.getElementById("message");
+		let linkmail = document.getElementById("linkmail");
 
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Ihren Namen" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Deine E-mail" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Titel" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Nachricht" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Wird geladen</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Vielen Dank für Ihre Nachricht, sie wurde bereits versendet!</div>
-              </div>
-              <div class="text-center"><button type="submit">Nachricht senden</button></div>
-            </form>
-          </div>
+		linkmail.setAttribute("href", "mailto:antoniogriesinger@gmail.com?subject=" + encodeURIComponent(subject.value.trim()) + "&body=" + encodeURIComponent(message.value.trim()));			
+	}
+</script>
 
         </div>
 
